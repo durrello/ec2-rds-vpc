@@ -10,7 +10,7 @@ module "vpc" {
   private_subnets = var.private_subnets_cidr
   public_subnets  = var.public_subnets_cidr
 
-  enable_nat_gateway = true
+  enable_nat_gateway   = true
   enable_dns_hostnames = true
   tags = {
     Terraform   = "true"
@@ -54,9 +54,9 @@ resource "aws_security_group" "rds_sg" {
 
   # Allow MySQL/Aurora access from the EC2 security group
   ingress {
-    from_port   = 3306 # Default MySQL port
-    to_port     = 3306
-    protocol    = "tcp"
+    from_port       = 3306 # Default MySQL port
+    to_port         = 3306
+    protocol        = "tcp"
     security_groups = [aws_security_group.ec2_sg.id]
   }
 

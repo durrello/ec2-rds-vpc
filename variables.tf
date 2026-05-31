@@ -101,8 +101,8 @@ variable "db_username" {
 variable "db_password" {
   description = "RDS master password"
   type        = string
-  # !! Use a more secure method (e.g., Terraform vars file, AWS Secrets Manager) for production !!
-  default     = "ChangeMe123!" 
+  sensitive   = true
+  # No default — supply via TF_VAR_db_password or a gitignored tfvars file.
 }
 
 variable "db_allocated_storage" {
